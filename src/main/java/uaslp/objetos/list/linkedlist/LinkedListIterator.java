@@ -14,10 +14,10 @@ public class LinkedListIterator <T>implements Iterator <T> {
         return currentNode != null;
     }
 
-    public T next(){
+    public short next(){
         T data = currentNode.data;
         currentNode = currentNode.next;
 
-        return data;
+        return (short) data;
     }
 }
