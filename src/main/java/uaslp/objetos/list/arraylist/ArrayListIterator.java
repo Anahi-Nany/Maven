@@ -17,10 +17,10 @@ public class ArrayListIterator <T> implements Iterator<T> {
         return currentItem < arrayList.getSize();
     }
 
-    public short next() {
+    public T next() {
         T data = arrayList.getAt(currentItem);
 
         currentItem++;
-        return (short) data;
+        return data;
     }
 }

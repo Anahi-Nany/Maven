@@ -119,12 +119,12 @@ public class HashSet<T> implements Set<T> {
         }
 
         @Override
-        public short next() throws NotValidIndexException {
+        public T next() throws NotValidIndexException {
             if(bucketIndex == -1 || buckets[bucketIndex] == null || buckets[bucketIndex].getSize() == elementIndex){
                 findNextValidBucket();
             }
             count++;
-            return (short) buckets[bucketIndex].getAt(elementIndex++);
+            return  buckets[bucketIndex].getAt(elementIndex++);
         }
 
         private void findNextValidBucket() {

@@ -22,16 +22,17 @@ public class LinkedListTest {
 
 
     @Test
-    public void givenANewList_whenGetSize_thenResultIsZero(){
+    public void givenANewList_whenGetSize_thenResultIsZero() {
         //Given:
-        LinkedList<String> list = new LinkedList<>();
+        LinkedList<String> list = new LinkedList<>(); //Crea un objeto de la lista
 
         //When:
-        int sizeOfList=list.getSize();
+        int sizeOfList = list.getSize();
 
         //Then:
-        Assertions.assertEquals(0, list.getSize(), "Size of list after creation must be zero");
+        Assertions.assertEquals(0, sizeOfList, "Size of list after creation must be zero."); //Valida que el tamaño sea 1
     }
+
 
     @Test
     public void givenANewList_whenGetAt_thenExceptionIsThrown(){
@@ -388,4 +389,7 @@ public class LinkedListTest {
         //Then:
         Assertions.assertThrows(NotNullValuesAllowedException.class, ()->list.setAt(0, null));
     }
+
+
+
 }

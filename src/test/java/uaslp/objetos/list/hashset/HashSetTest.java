@@ -124,4 +124,45 @@ public class HashSetTest {
         Assertions.assertThrows(NotSuchElementException.class,()->hash.iterator().next());
 
     }
+
+    @Test
+    public void givenASetWithThreeElements_whenGetIterator_thenIterator() throws NotNullValuesAllowedException, NotValidIndexException {
+        //Given
+
+        HashSet<String> hashSet = new HashSet<>();
+        hashSet.add("Hola");
+        hashSet.add("Todos");
+        hashSet.add("Soy Isai");
+
+        //When
+
+        Iterator<String> iterator = hashSet.iterator();
+
+        //Then
+        int size = hashSet.size();
+        HashSet<String> iterations = new HashSet<>();
+
+        Assertions.assertEquals(3, size);
+
+        Assertions.assertNotNull(iterator);
+
+        Assertions.assertTrue(iterator.hasNext());
+        iterations.add(iterator.next());
+
+        Assertions.assertTrue(iterator.hasNext());
+        iterations.add(iterator.next());
+
+        Assertions.assertTrue(iterator.hasNext());
+        iterations.add(iterator.next());
+
+        Assertions.assertFalse(iterator.hasNext());
+
+        Assertions.assertTrue(hashSet.contains("Hola"));
+        Assertions.assertTrue(hashSet.contains("Todos"));
+        Assertions.assertTrue(hashSet.contains("Soy Isai"));
+
+        Assertions.assertThrows(NotSuchElementException.class, iterator::next);
+    }
+
+
 }
